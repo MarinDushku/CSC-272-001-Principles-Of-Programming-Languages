@@ -66,6 +66,6 @@ Start --> S0 ----------> S1----------->S2 ---------->S3--------->S4------> End
                     digit |   V       .           digit |  V   e/E           |      |
   Start------>S0---------> S1 ------------- > S2 ------> S3  ------->  S4  --|      |digit
                            |                             |                   |digit V
-                           |                             |                   |----> S7------> S8(Return)
+                           | other                       | other             |----> S7------> S8(Return)
                            V                             V
                            S9(Return)                 S10(Return)
