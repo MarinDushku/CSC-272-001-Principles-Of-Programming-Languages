@@ -1,0 +1,71 @@
+A#4-2 | Sebasta, Chapter 4: Parsing
+Instructions
+Complete Problem Set 3 and Programming Exercise 1 and2 of Sebasta, Chapter 4.
+
+1) Problem Set 3: Show a trace of the recursive descent parser given in Section 4.4.1 for the string a + b * c.
+2) Programming Exercises 1: Design a state diagram to recognize one form of the comments of the C-based programming languages, those that begin with /* and end with */. 
+3) Programming Exercises 2: Design a state diagram to recognize the floating-point literals of your favorite programming language.
+
+
+1) 
+The parser implements the following grammar:
+<expr> → <term> {(+ | -) <term>}
+<term> → <factor> {(* | /) <factor>}
+<factor> → id | int_constant | ( <expr> )
+
+And this is what function call process should be: 
+Input expression: a + b * c
+Next token is: 11, Next lexeme is a
+Enter <expr>
+Enter <term>
+Enter <factor>
+    Identifier: a
+Next token is: 21, Next lexeme is +
+Exit <factor>
+Exit <term>
+Next token is: 11, Next lexeme is b
+Enter <term>
+Enter <factor>
+    Identifier: b
+Next token is: 23, Next lexeme is *
+Exit <factor>
+Next token is: 11, Next lexeme is c
+Enter <factor>
+    Identifier: c
+Next token is: -1, Next lexeme is EOF
+Exit <factor>
+    Multiply operation
+Exit <term>
+    Add operation
+Exit <expr>
+
+
+=== Code Execution Successful ===
+
+
+                                        Anything else
+                                        _____________
+2)                                      |            |
+                /               *       V      *     |      /
+Start --> S0 ----------> S1----------->S2 ---------->S3--------->S4------> End
+                                   ____^|             
+                                   |    |
+                                    -----
+                                Anything else
+
+
+
+
+3)
+
+
+
+                          digit                         digit
+                          _____                         ____                   +/-     Other
+                          │   |                         |  |                 |----> S5-----> S6(Return)
+                    digit |   V       .           digit |  V   e/E           |      |
+  Start------>S0---------> S1 ------------- > S2 ------> S3  ------->  S4  --|      |digit
+                           |                             |                   |digit V
+                           |                             |                   |----> S7------> S8(Return)
+                           V                             V
+                           S9(Return)                 S10(Return)
