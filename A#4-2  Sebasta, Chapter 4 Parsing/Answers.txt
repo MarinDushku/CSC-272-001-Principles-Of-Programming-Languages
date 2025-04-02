@@ -56,16 +56,20 @@ Start --> S0 ----------> S1----------->S2 ---------->S3--------->S4------> End
 
 
 
-3)
-
-
-
-                          digit                         digit
-                          _____                         ____                   +/-     Other
-                          │   |                         |  |                 |----> S5-----> S6(Return)
-                    digit |   V       .           digit |  V   e/E           |      |
+3)                                                          "_"     other
+                                                        S11--->S12 ----> S13(Return)
+                                                        ^|      |
+                                                        ||      | digit
+                          digit                  digit  ||  ____|
+                          _____                         ||  |                  +/-     Other
+                          │   |                         ||  |                |----> S5-----> S6(Return)
+                    digit |   V       .           digit |V  V   e/E          |      |
   Start------>S0---------> S1 ------------- > S2 ------> S3  ------->  S4  --|      |digit
                            |                             |                   |digit V
-                           | other                       | other             |----> S7------> S8(Return)
-                           V                             V
-                           S9(Return)                 S10(Return)
+                           | other                       | other             |----> S7------> S8(Return) ---> End
+                           V                             V                          |  ^<___
+                           S9(Return)                 S10(Return)             digit |  |    |digit
+                                                                                    |S14---->S15------> S16 (Reurn)
+                                                                                         "_"    others
+                                                                                    
+
