@@ -16,8 +16,6 @@
 #define DIV_OP 24
 #define LEFT_PAREN 25
 #define RIGHT_PAREN 26
-
-/* Reserved word token codes */
 #define FOR_CODE 30
 #define IF_CODE 31
 #define ELSE_CODE 32

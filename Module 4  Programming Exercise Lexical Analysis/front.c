@@ -11,7 +11,7 @@
 /* front.c - a lexical analyzer system for simple arithmetic expressions */
 #include <stdio.h>
 #include <ctype.h>
-#include <string.h>  /* Added for string comparison functions */
+#include <string.h>  
 
 #include "front.h"
 #include "parser.h"
@@ -88,7 +88,7 @@ static int lookup(char ch) {
 }
 
 /*****************************************************/
-/* lookupReservedWord - a function to determine if a lexeme is a reserved word */
+/* lookupReservedWord - a function to determine if a lexeme is one of the reserved words */
 static int lookupReservedWord(char* lexeme) {
     if (strcmp(lexeme, "for") == 0)
         return FOR_CODE;
@@ -107,7 +107,7 @@ static int lookupReservedWord(char* lexeme) {
     else if (strcmp(lexeme, "switch") == 0)
         return SWITCH_CODE;
     else
-        return IDENT; /* Not a reserved word, so it's an identifier */
+        return IDENT; 
 }
 
 /*****************************************************/
